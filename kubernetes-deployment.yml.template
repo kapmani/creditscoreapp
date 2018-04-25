@@ -21,7 +21,7 @@ spec:
         run: rest-jscreditscore
     spec:
       containers:
-      - image: phx.ocir.io/inorclmbaldwin/manish/jscreditscor:$WERCKER_GIT_BRANCH-$WERCKER_GIT_COMMIT
+      - image: phx.ocir.io/inorclmbaldwin/manish/jscreditscore:$WERCKER_GIT_BRANCH-$WERCKER_GIT_COMMIT
         imagePullPolicy: Always
         name: rest-jscreditscore
         ports:
