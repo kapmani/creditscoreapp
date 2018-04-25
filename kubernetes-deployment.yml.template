@@ -28,7 +28,7 @@ spec:
         - containerPort: 3000
           protocol: TCP
       imagePullSecrets:
-      - name: wrelease
+      - name: ocir
       restartPolicy: Always
 ---
 apiVersion: v1
