@@ -39,7 +39,7 @@ deploy-to-oke:
         
     - script:
         name: wait to delete namespace
-        code: sleep 30
+        code: sleep 40
         
     - kubectl:
         name: create namespace    
@@ -78,7 +78,7 @@ deploy-to-oke:
         server: $KUBERNETES_MASTER
         token: $KUBERNETES_TOKEN
         insecure-skip-tls-verify: true
-        command: get svc -o jsonpath='{.items[*].status.loadBalancer.ingress[*].ip}' --namespace=manish
+        command: get svc -o jsonpath='{.items[*].status.loadBalancer.ingress[*].ip}' --all-namespaces
 
 functional-test:
   steps:
