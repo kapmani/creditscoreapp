@@ -35,11 +35,11 @@ deploy-to-oke:
         server: $KUBERNETES_MASTER
         token: $KUBERNETES_TOKEN
         insecure-skip-tls-verify: true
-        command: delete secret ocir --namespace=$WERCKER_APPLICATION_OWNER_NAME; echo delete registry secret     
+        command: delete secret ocir --namespace=manish; echo delete registry secret     
         
     - script:
         name: wait to delete secret
-        code: sleep 30
+        code: sleep 10
     
     - kubectl:
         name: create OCR secret
