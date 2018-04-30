@@ -39,7 +39,7 @@ deploy-to-oke:
         
     - script:
         name: wait to delete secret
-        code: sleep 10
+        code: sleep 5
     
     - kubectl:
         name: create OCR secret
