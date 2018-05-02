@@ -53,7 +53,7 @@ deploy-to-oke:
         server: $KUBERNETES_MASTER
         token: $KUBERNETES_TOKEN
         insecure-skip-tls-verify: true
-        command: create -f $WERCKER_ROOT/kubernetes-deployment.yml --namespace=manish
+        command: apply -f $WERCKER_ROOT/kubernetes-deployment.yml --namespace=manish
 
     - script:
         name: "Visualise Ingress config"
@@ -64,7 +64,7 @@ deploy-to-oke:
         server: $KUBERNETES_MASTER
         token: $KUBERNETES_TOKEN
         insecure-skip-tls-verify: true
-        command: create -f $WERCKER_ROOT/ingress.yml --namespace=manish
+        command: apply -f $WERCKER_ROOT/ingress.yml --namespace=manish
 
     - kubectl:
         name: get LoadBalancer public IP address
