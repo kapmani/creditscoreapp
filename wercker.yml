@@ -14,7 +14,7 @@ push-to-releases:
     - internal/docker-push:
         username: $DOCKER_USERNAME
         password: $DOCKER_PASSWORD
-        repository: mankap/jscreditscore
+        repository: phx.ocir.io/inorclmbaldwin/manish/jscreditscore
         registry: $DOCKER_REGISTRY
         tag: $WERCKER_GIT_BRANCH-$WERCKER_GIT_COMMIT
         cmd: node /pipeline/source/app.js
