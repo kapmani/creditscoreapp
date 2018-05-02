@@ -35,15 +35,11 @@ apiVersion: v1
 kind: Service
 metadata:
   name: rest-jscreditscore-svc
-  labels:
-    app: rest-jscreditscore
-    commit: ${WERCKER_GIT_COMMIT}
 spec:
-  ports:
-  - port: 8088
-    targetPort: 3000
   selector:
-    app: rest-jscreditscore
-    commit: ${WERCKER_GIT_COMMIT}
+    run: rest-jscreditscore
+  ports:
+    - port: 8088
+      targetPort: 3000
   type: LoadBalancer
 ---
