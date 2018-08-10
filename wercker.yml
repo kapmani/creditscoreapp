@@ -47,6 +47,10 @@ deploy-to-oke:
         token: $KUBERNETES_TOKEN
         insecure-skip-tls-verify: true
         command: create secret docker-registry ocir --docker-server=$DOCKER_REGISTRY --docker-username=$DOCKER_USERNAME --docker-password=\'$DOCKER_PASSWORD\' --docker-email=${WERCKER_APPLICATION_OWNER_NAME}@mail.com --namespace=manish
+    
+    - script:
+        name: wait 
+        code: sleep 3  
         
     - kubectl:
         name: create deplyoment
@@ -59,13 +63,21 @@ deploy-to-oke:
         name: "Visualise Ingress config"
         code: cat ingress.yml
 
+    - script:
+        name: wait 
+        code: sleep 3
+        
     - kubectl:
         name: create Ingress configuration
         server: $KUBERNETES_MASTER
         token: $KUBERNETES_TOKEN
         insecure-skip-tls-verify: true
         command: apply -f $WERCKER_ROOT/ingress.yml --namespace=manish
-
+    
+    - script:
+        name: wait 
+        code: sleep 3
+        
     - kubectl:
         name: get LoadBalancer public IP address
         server: $KUBERNETES_MASTER
